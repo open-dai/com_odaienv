@@ -9,6 +9,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>1.0</version>
 	<description></description>
+	<scriptfile>install/script.php</scriptfile>
 	<installfile></installfile>
 	<uninstallfile></uninstallfile>
 	<install>
@@ -53,6 +54,7 @@
 			<folder>models</folder>
 			<folder>sql</folder>			
 			<folder>tables</folder>
+			<folder>files</folder>
 			<folder>views</folder>									
 		</files>	
         <languages folder="admin">
