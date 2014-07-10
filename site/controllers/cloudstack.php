@@ -114,7 +114,8 @@ class OdaienvControllerCloudstack extends JControllerLegacy
 			);
 			
 //		$created = $cloudstack->deployVirtualMachine($vars);
-		
+		$view = $this->getView('deploy','html');
+		$view->display();
 		return $this;
 	}
 		
