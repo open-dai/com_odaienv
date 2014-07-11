@@ -3,7 +3,7 @@
 class OdaienvViewDeploy extends JViewLegacy
 {
   /** @var  string   my variable */
-  public $templates;
+  
   public $serviceOfferngs;
   public $diskOfferings;
   public $vms;
