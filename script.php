@@ -51,7 +51,7 @@ class com_odaienvInstallerScript
 		
 
 		
-		$parent->getParent()->setRedirectURL('index.php?option=com_odaienv');
+		$parent->getParent()->setRedirectURL('index.php?option=com_config&view=component&component=com_odaienv');
 	}
 	function uninstall($parent) {}
 

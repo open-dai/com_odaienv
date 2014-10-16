@@ -29,6 +29,10 @@
 	</files>	
 	<administration>
 		<menu link="index.php?option=com_odaienv">Odaienv</menu>
+		<submenu>
+			<menu link="index.php?option=com_odaienv">COM_ODAIENV_SUBMENU_ENV</menu>
+			<menu link="index.php?option=com_odaienv&view=vdbs">COM_ODAIENV_SUBMENU_VDB</menu>
+		</submenu>
 
 		<files folder="admin">
 			<filename>config.xml</filename>
