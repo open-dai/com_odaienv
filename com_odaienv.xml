@@ -9,7 +9,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>1.0</version>
 	<description></description>
-	<scriptfile>install/script.php</scriptfile>
+	<scriptfile>script.php</scriptfile>
 	<installfile></installfile>
 	<uninstallfile></uninstallfile>
 	<install>
@@ -27,10 +27,6 @@
 	<files folder="site">
 			<filename>index.html</filename>			
 	</files>	
-	<languages folder="site">
-		<language tag="en-GB">language/en-GB.com_odaienv.ini</language>
-    	<language tag="de-DE">language/de-DE.com_odaienv.ini</language>            
-	</languages>
 	<administration>
 		<menu link="index.php?option=com_odaienv">Odaienv</menu>
 
