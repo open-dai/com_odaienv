@@ -157,6 +157,48 @@ class com_odaienvInstallerScript
 			$i++;
 		}
 		
+		$src[0]		= JPATH_ROOT. '/administrator/components/com_odaienv/files/restmco/restmco.class.php';
+		$src[1]		= JPATH_ROOT. '/administrator/components/com_odaienv/files/restmco/easy.curl.class.php';
+		$dest[0]	= JPATH_ROOT. '/libraries/restmco/restmco.class.php';
+		$dest[1]	= JPATH_ROOT. '/libraries/restmco/easy.curl.class.php';
+		$folderPath = JPATH_ROOT. '/libraries/restmco';
+		
+		if(!JFolder::create($folderPath, 0755)) {
+			$errFile[]	= $error . JText::_( 'COM_ODAIENV_FOLDER_CREATING' ). ': ' . str_replace( JPATH_ROOT . '/', '', $folderPath);
+		} else {
+			$sccFile[]	= $success . JText::_( 'COM_ODAIENV_FOLDER_CREATING' ). ': ' . str_replace( JPATH_ROOT . '/', '', $folderPath);
+		}
+		
+		if(!JFile::write($folderPath.DS."index.html", $data)) {
+			$errFile[]	= $error . JText::_( 'COM_ODAIENV_FILE_CREATING' ). ': ' . str_replace( JPATH_ROOT . '/', '',$folderPath).DS."index.html";
+		} else {
+			$sccFile[]	= $success . JText::_( 'COM_ODAIENV_FILE_CREATING' ). ': ' . str_replace( JPATH_ROOT . '/', '',$folderPath).DS."index.html";
+		}
+		
+		//// to do insert for cycle to install all files
+		$i = 0;
+		foreach ($dest as $destValue) {
+			if (file_exists($src[$i])) {
+				if (!JFile::copy($src[$i], $destValue)) {
+					$errFile[]	= $error . JText::_( 'COM_ODAIENV_FILE_COPYING' ). ': '
+						. '<br />&nbsp;&nbsp; - ' . JText::_( 'COM_ODAIENV_SOURCE_FILE' ). ': ' . str_replace( JPATH_ROOT . '/', '', $src[$i])
+						. '<br />&nbsp;&nbsp; - ' . JText::_( 'COM_ODAIENV_DESTINATION_FILE' ). ': ' . str_replace( JPATH_ROOT . '/', '', $destValue);
+				} else {
+					$sccFile[]	= $success . JText::_( 'COM_ODAIENV_FILE_COPYING' ). ': '
+						. '<br />&nbsp;&nbsp; - ' . JText::_( 'COM_ODAIENV_SOURCE_FILE' ). ': ' . str_replace( JPATH_ROOT . '/', '', $src[$i])
+						. '<br />&nbsp;&nbsp; - ' . JText::_( 'COM_ODAIENV_DESTINATION_FILE' ). ': ' . str_replace( JPATH_ROOT . '/', '', $destValue);
+				}
+			} else {
+				$errFile[] = $error . JText::_( 'COM_ODAIENV_ERROR_FILE_NOT_EXIST' ). ': ' . str_replace( JPATH_ROOT . '/', '', $src[$i]);
+			}	
+			
+			if (!file_exists($destValue)) {
+				$errFile[] = $error . JText::_( 'COM_ODAIENV_ERROR_FILE_NOT_EXIST' ). ': ' . str_replace( JPATH_ROOT . '/', '', $destValue);
+			}
+			$i++;
+		}
+		
+		
 		return true;// will be not worked, we are working with errorMsg
 	}
 	

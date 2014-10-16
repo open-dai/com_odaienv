@@ -11,6 +11,9 @@
 //--No direct access
 defined('_JEXEC') or die('Resrtricted Access');
 
+if(!JFactory::getUser()->authorise('core.manage', 'come_odaienv')){
+	return Jerror::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
+}
 require_once(JPATH_COMPONENT.'/helpers/odaienv.php');
 $controller = JControllerLegacy::getInstance('odaienv');
 $controller->execute(JFactory::getApplication()->input->get('task'));

@@ -5,7 +5,7 @@
 	<author>Luca Gioppo</author>
 	<authorEmail>info@example.com</authorEmail>
 	<authorUrl>http://www.example.com</authorUrl>
-	<copyright>Copyright (C) 2014 Luca Gioppo Open Source Matters. All rights reserved.</copyright>	
+	<copyright>Copyright (C) 2014 Luca Gioppo. All rights reserved.</copyright>	
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>1.0</version>
 	<description></description>
@@ -15,23 +15,17 @@
 	<install>
 		<sql>
 			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+			<file driver="postgresql" charset="utf8">sql/install.postgresql.sql</file>
 		</sql>
 	</install>
 	<uninstall>
 		<sql>
 			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+			<file driver="postgresql" charset="utf8">sql/uninstall.postgresql.sql</file>
 		</sql>
 	</uninstall>
 	<files folder="site">
-			<filename>odaienv.php</filename>
-			<filename>controller.php</filename>
 			<filename>index.html</filename>			
-			<filename>router.php</filename>
-			<folder>controllers</folder>
-			<folder>helpers</folder>
-			<folder>models</folder>
-			<folder>views</folder>
-			<folder>assets</folder>			
 	</files>	
 	<languages folder="site">
 		<language tag="en-GB">language/en-GB.com_odaienv.ini</language>
@@ -43,11 +37,11 @@
 		<files folder="admin">
 			<filename>config.xml</filename>
 			<filename>odaienv.php</filename>
-			<filename>controller.php</filename>			<filename>index.html</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
 			<filename>access.xml</filename>			
 			<folder>assets</folder>
-			<folder>elements</folder>
-			<folder>manifest</folder>				
+			<folder>elements</folder>				
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>manifest</folder>			

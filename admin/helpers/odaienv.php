@@ -16,18 +16,28 @@ class OdaienvHelper
 	/*
 	 * Submenu for Joomla 3.x
 	 */
-	public static function addSubmenu($vName = 'vms')
+	public static function addSubmenu($vName = 'vdbs')
 	{
         	if(version_compare(JVERSION,'3','<')){
 		JSubMenuHelper::addEntry(
-			JText::_('Vms'),
+			JText::_('Vdbs'),
+			'index.php?option=com_odaienv&view=vdbs',
+			($vName == 'vdbs')
+		);	
+		JSubMenuHelper::addEntry(
+			JText::_('Deploy'),
 			'index.php?option=com_odaienv&view=vms',
 			($vName == 'vms')
 		);	
 	} else {
 		JHtmlSidebar::addEntry(
-			JText::_('Vms'),
-			'index.php?option=com_odaienv&view=vms',
+			JText::_('Vdbs'),
+			'index.php?option=com_odaienv&view=vdbs',
+			($vName == 'vdbs')
+		);	
+		JHtmlSidebar::addEntry(
+			JText::_('Deploy'),
+			'index.php?option=com_odaienv&task=env.vmlist',
 			($vName == 'vms')
 		);	
 	}
